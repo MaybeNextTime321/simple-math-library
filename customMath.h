@@ -97,7 +97,7 @@ namespace math
 		return result;
         }
 
-        int factorial(int firstNumber, int secondNumber, MathStatus& operationStatus)
+        int factorial(int firstNumber, MathStatus& operationStatus)
         {
                 int result = 1;
                 long long newResult = 1;
