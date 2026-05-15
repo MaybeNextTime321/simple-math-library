@@ -4,32 +4,51 @@
 
 namespace math
 {
-	void add(utility::Task & task)                            {                                                                 task.result = task.firstNumber + task.secondNumber;                                                         }                                                                                                                   void substract(utility::Task & task)                      {                                                                 task.result = task.firstNumber - task.secondNumber;                                                         }                                                                                                                   void multiply(utility::Task & task)                       {                                                                 task.result = task.firstNumber * task.secondNumber;                                                         }                                                                                                                   void divide(utility::Task & task)                         {                                                                 task.result = task.firstNumber / task.secondNumber;
+	int add(int firstNumber, int secondNumber)                            
+	{                                                                 
+		return firstNumber + secondNumber;
+	}
+	
+	int substract(int firstNumber, int secondNumber)
+	{
+		return firstNumber - secondNumber;
+	}
+	
+	int multiply(int firstNumber, int secondNumber)
+	{
+		return firstNumber * secondNumber;
 	}
 
-	        void power(utility::Task & task)
+	int divide(int firstNumber, int secondNumber)
+	{
+		return firstNumber / secondNumber;
+	}
+
+	int power(int firstNumber, int secondNumber)
         {
                 task.result = 1;
-                for(int i = 0; i < task.secondNumber; ++i)
+                for(int i = 0; i < secondNumber; ++i)
                 {
-                        task.result *= task.firstNumber;
-                }
-        }
-
-        void moduo(utility::Task & task)
-        {
-                task.result = task.firstNumber % task.secondNumber;
-        }
-
-        void factorial(utility::Task & task)
-        {
-                double result = 1;
-
-                for(double i = task.firstNumber; i > 0; --i)
-                {
-                        result *= i--;
+                        result *= firstNumber;
                 }
 
-                task.result = result;
+		return result;
+        }
+
+        int moduo(int firstNumber, int secondNumber)
+        {
+                return firstNumber % secondNumber;
+        }
+
+        int factorial(int firstNumber, int secondNumber)
+        {
+                int result = 1;
+
+                for(int i = firstNumber; i > 0; --i)
+                {
+                        result *= i;
+                }
+
+                return result;
         }
 }
