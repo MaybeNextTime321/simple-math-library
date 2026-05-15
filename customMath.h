@@ -85,7 +85,7 @@ namespace math
 		long long newResult = 1;
                 for(int i = 0; i < secondNumber; ++i)
                 {
-			newResult = result *= firstNumber;
+			newResult = result * firstNumber;
                 	if(newResult > INT_MAX)
                 	{
                 		operationStatus = MathStatus::Overflow;
@@ -103,7 +103,7 @@ namespace math
                 long long newResult = 1;
                 for(int i = firstNumber; i > 0; --i)
                 {
-			newResult = result *= i;
+			newResult = result * i;
                         if(newResult > INT_MAX)
                         {
                                 operationStatus = MathStatus::Overflow;
