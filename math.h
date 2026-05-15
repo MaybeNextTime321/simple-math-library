@@ -26,7 +26,7 @@ namespace math
 
 	int power(int firstNumber, int secondNumber)
         {
-                task.result = 1;
+                int result = 1;
                 for(int i = 0; i < secondNumber; ++i)
                 {
                         result *= firstNumber;
