@@ -12,7 +12,7 @@ file(GLOB_RECURSE CLANG_FORMAT_SRC CONFIGURE_DEPENDS
         *.hpp
 )
 
-add_custom_target(clang-format-fix
+add_custom_target(math-clang-format
         COMMAND
             ${CLANG_FORMAT_PATH} -style=file -i ${CLANG_FORMAT_SRC}
         WORKING_DIRECTORY
@@ -21,6 +21,6 @@ add_custom_target(clang-format-fix
         "Formatting ${PROJECT_NAME} with ${CLANG_FORMAT_PATH} ..."
     )
 
-add_dependencies(${PROJECT_NAME} clang-format-fix)
+add_dependencies(${PROJECT_NAME} math-clang-format)
 
 target_include_directories(math INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
