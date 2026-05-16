@@ -24,7 +24,7 @@ namespace math
 			return 0;
 		}
 
-                if(firstNumber > 0 && secondNumber < 0 && firstNumber < INT_MIN - secondNumber)
+                if(firstNumber < 0 && secondNumber < 0 && firstNumber < INT_MIN - secondNumber)
                 {
                         operationStatus = MathStatus::Overflow;
 			return 0;
@@ -52,8 +52,8 @@ namespace math
 	
 	int multiply(int firstNumber, int secondNumber, MathStatus& operationStatus)
 	{
-		long long result = firstNumber * secondNumber;
-		if(result > INT_MAX)
+		long long result = static_cast<long long>(firstNumber) * secondNumber;
+		if(result > INT_MAX || result < INT_MIN)
 		{
 		operationStatus = MathStatus::Overflow;
 		return 0;
@@ -81,37 +81,39 @@ namespace math
 
 	int power(int firstNumber, int secondNumber, MathStatus& operationStatus)
         {
-                int result = 1;
-		long long newResult = 1;
+		long long result = 1;
                 for(int i = 0; i < secondNumber; ++i)
                 {
-			newResult = result * firstNumber;
-                	if(newResult > INT_MAX)
+			result *= firstNumber;
+                	if(result > INT_MAX || result < INT_MIN)
                 	{
                 		operationStatus = MathStatus::Overflow;
                 		return 0;
                 	}
-                        result *= firstNumber;
                 }
 
-		return result;
+		return static_cast<int>(result);
         }
 
         int factorial(int firstNumber, MathStatus& operationStatus)
         {
-                int result = 1;
-                long long newResult = 1;
+                long long result = 1;
+		if (firstNumber < 0)
+		{
+    			operationStatus = MathStatus::FactorialFromNegative;
+    			return 0;
+		}
+
                 for(int i = firstNumber; i > 0; --i)
                 {
-			newResult = result * i;
-                        if(newResult > INT_MAX)
+			result *= i;
+                        if(result > INT_MAX || result < INT_MIN)
                         {
                                 operationStatus = MathStatus::Overflow;
                                 return 0;
                         }
-                        result *= i;
                 }
 
-                return result;
+                return static_cast<int>(result);
         }
 }
