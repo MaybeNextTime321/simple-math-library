@@ -13,7 +13,8 @@ namespace math
 		DivideByZero,
 		Overflow,
 		FactorialFromNegative,
-		ParseError
+		ParseError,
+		Help
 	};
 
 	int add(int firstNumber, int secondNumber, MathStatus& operationStatus)                            
